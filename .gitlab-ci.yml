@@ -1,0 +1,37 @@
+image: cirrusci/flutter:latest
+
+stages:
+  - build
+  - test
+#  - deploy
+
+build_android:
+  stage: build
+  script:
+    - echo "test"
+###    - flutter packages get
+###    - flutter build apk --release
+###
+###build_ios:
+###  stage: build
+###  script:
+###    - flutter packages get
+###    - flutter build ios --release --no-codesign
+###
+test:
+  stage: test
+  script:
+    - echo "test"
+###    - flutter test
+###
+######deploy_android:
+###  stage: deploy
+###  script:
+###    - flutter build appbundle --release
+###    - echo "Deploying to Google Play Store"
+###
+###deploy_ios:
+###  stage: deploy
+###  script:
+###    - flutter build ipa --release --no-codesign
+###    - echo "Deploying to App Store Connect"
