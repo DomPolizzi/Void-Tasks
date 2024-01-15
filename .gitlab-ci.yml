@@ -8,7 +8,7 @@ stages:
 build_android:
   stage: build
   script:
-    - echo "test"
+    - echo "Build stage running successfully"
 ###    - flutter packages get
 ###    - flutter build apk --release
 ###
@@ -21,7 +21,7 @@ build_android:
 test:
   stage: test
   script:
-    - echo "test"
+    - echo "Test stage running successfully"
 ###    - flutter test
 ###
 ######deploy_android:
