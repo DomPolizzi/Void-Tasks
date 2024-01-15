@@ -22,6 +22,7 @@ test:
   stage: test
   script:
     - echo "test"
+    - echo "test"
 ###    - flutter test
 ###
 ######deploy_android:
