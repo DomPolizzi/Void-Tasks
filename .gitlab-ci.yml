@@ -8,7 +8,7 @@ stages:
 build_android:
   stage: build
   script:
-    - cd void-tasks
+    - cd void_tasks
     - flutter packages get
     - flutter build apk --release
     - echo "Build stage running successfully"
@@ -22,7 +22,7 @@ build_android:
 test:
   stage: test
   script:
-    - cd void-tasks
+    - cd void_tasks
     - flutter test
     - echo "Test stage running successfully"
 ###
