@@ -1,16 +1,24 @@
-image: cirrusci/flutter:latest
+image: ghcr.io/cirruslabs/flutter
 
 stages:
+  - lints
   - build
   - test
 #  - deploy
+
+lints:
+  stage: lints
+  before_script:
+    - bash reconfigure.sh
+  script:
+    - flutter analyze
 
 build_android:
   stage: build
   script:
     - cd void_tasks
     - flutter packages get
-    - flutter build apk --release
+    - flutter build apk --release --build-number ${CI_JOB_ID:0:8}
     - echo "Build stage running successfully"
 ###
 ###build_ios:
@@ -24,6 +32,9 @@ test:
   script:
     - cd void_tasks
     - flutter test
+    - flutter test --coverage ./lib
+    - lcov -r coverage/lcov.info '*/__test*__/*' -o coverage/lcov_cleaned.info
+    - genhtml coverage/lcov_cleaned.info --output=coverage
     - echo "Test stage running successfully"
 ###
 ######deploy_android:
